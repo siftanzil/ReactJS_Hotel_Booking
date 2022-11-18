@@ -116,6 +116,7 @@ h6 {
    overflow: hidden;
    transition: var(--mainTransition);
    list-style-type: none;
+   text-align: center;
 }
 .nav-links a {
    display: block;
@@ -128,12 +129,25 @@ h6 {
    font-weight: 600;
    letter-spacing: var(--mainSpacing);
 }
+.nav-links button {
+   display: block;
+   text-decoration: none;
+   padding: 0.5rem;
+   border-radius: 10px;
+   color: var(--mainBlack);
+   transition: var(--mainTransition);
+   text-align: center;
+   font-size: 1rem;
+   font-weight: 600;
+   margin: auto;
+   letter-spacing: var(--mainSpacing);
+}
 .nav-links a:hover {
    color: var(--primaryColor);
 }
 
 .show-nav {
-   height: 100px;
+   height: 25%;
 }
 @media screen and (min-width: 768px) {
    .nav-btn {
@@ -156,9 +170,10 @@ h6 {
 }
 /* end of navbar */
 /* Hero */
+
 .defaultHero,
 .roomsHero {
-   min-height: calc(100vh - 66px);
+   min-height: 60vh;
    background: url("./images/defaultBcg.jpeg") center/cover no-repeat;
    display: flex;
    align-items: center;
@@ -459,55 +474,71 @@ h6 {
    }
 }
 /* end of roomlist */
-/*  rooms fitler*/
-.filter-container {
-   padding: 5rem 0;
+
+/*feedback-form*/
+
+#feedback-form {
+   width: 500px;
+   margin: 200px auto;
+   background-color: #fcfcfc;
+   padding: 50px;
+   box-shadow: 1px 4px 10px 1px #aaa;
+   font-family: sans-serif;
 }
-.filter-form {
-   width: 60vw;
-   margin: 0 auto;
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
-   grid-row-gap: 2rem;
-   grid-column-gap: 40px;
+
+#feedback-form * {
+   box-sizing: border-box;
 }
-.form-group {
-   text-transform: capitalize;
+
+#feedback-form h2 {
+   text-align: center;
+   margin-bottom: 30px;
 }
-.form-group label {
+
+#feedback-form input {
+   margin-bottom: 15px;
+}
+
+#feedback-form input {
    display: block;
-   letter-spacing: var(--mainSpacing);
-   margin-bottom: 0.5rem;
-}
-.form-control {
+   height: 32px;
+   padding: 6px 16px;
    width: 100%;
-   background: transparent;
-   font-size: 1rem;
+   border: none;
+   background-color: #f3f3f3;
 }
-.size-inputs {
-   display: flex;
+
+#feedback-form label {
+   color: #777;
+   font-size: 0.8em;
 }
-.size-input {
-   width: 40%;
-   padding: 0.2rem;
-   border: 1px solid var(--mainBlack);
-   border-radius: 0.3rem;
-   margin-right: 0.3rem;
+
+#feedback-form button[type="submit"] {
+   display: block;
+   margin: 20px auto 0;
+   width: 150px;
+   height: 40px;
+   border-radius: 25px;
+   border: none;
+   color: #eee;
+   font-weight: 700;
+   box-shadow: 1px 4px 10px 1px #aaa;
+
+   background: #207cca; /* Old browsers */
+   background: -moz-linear-gradient(
+      left,
+      #207cca 0%,
+      #9f58a3 100%
+   ); /* FF3.6-15 */
+   background: -webkit-linear-gradient(
+      left,
+      #207cca 0%,
+      #9f58a3 100%
+   ); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(
+      to right,
+      #207cca 0%,
+      #9f58a3 100%
+   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#9f58a3',GradientType=1 ); /* IE6-9 */
 }
-.single-extra label {
-   display: inline-block;
-   font-size: 0.8rem;
-   margin-left: 0.5rem;
-}
-@media screen and (min-width: 776px) {
-   .filter-form {
-      width: 70vw;
-   }
-}
-@media screen and (min-width: 992px) {
-   .filter-form {
-      width: 95vw;
-      max-width: 1170px;
-   }
-}
-/* end of rooms fitler*/

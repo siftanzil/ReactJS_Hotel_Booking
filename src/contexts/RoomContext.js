@@ -1,10 +1,9 @@
 import React, { createContext, useEffect, useState } from "react";
-import items from "./data";
+import items from "../data";
 const RoomContext = createContext();
 
 const RoomProvider = ({ children }) => {
    const [rooms, setRooms] = useState([]);
-   const [sortedRooms, setSortedRooms] = useState([]);
    const [featuredRooms, setFeaturedRooms] = useState([]);
    const [loading, setLoading] = useState(true);
 
@@ -15,7 +14,6 @@ const RoomProvider = ({ children }) => {
       let featuredRooms = rooms.filter((room) => room.featured === true);
       setFeaturedRooms(featuredRooms);
       setRooms(rooms);
-      setSortedRooms(rooms);
       setLoading(false);
    }, []);
 
@@ -36,8 +34,7 @@ const RoomProvider = ({ children }) => {
    };
 
    return (
-      <RoomContext.Provider
-         value={{ rooms, sortedRooms, featuredRooms, loading, getRoom }}>
+      <RoomContext.Provider value={{ rooms, featuredRooms, loading, getRoom }}>
          {children}
       </RoomContext.Provider>
    );

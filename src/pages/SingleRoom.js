@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import Banner from "./../components/Banner";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import defaultBcg from "../images/room-1.jpeg";
-import { RoomContext } from "../RoomContext";
+import { RoomContext } from "../contexts/RoomContext";
 import StyledHero from "./../components/StyledHero";
 
 const SingleRoom = () => {
    const { slug } = useParams();
+   const navigate = useNavigate();
 
    const context = useContext(RoomContext);
    const { getRoom } = context;
@@ -33,9 +34,16 @@ const SingleRoom = () => {
       extras,
       breakfast,
       images,
+      available,
    } = room;
 
    const [mainImg, ...defaultImg] = images;
+
+   const handleBooking = () => {
+      if (available) {
+         navigate(`/book/${name}`);
+      }
+   };
 
    return (
       <>
@@ -68,6 +76,20 @@ const SingleRoom = () => {
                         : `${capacity} person`}
                   </h6>
                   <h6>{breakfast && "free breakfast included"}</h6>
+                  <h4 style={{ color: "green" }}>
+                     Rooms Available Now : {available}
+                  </h4>
+                  <button
+                     onClick={handleBooking}
+                     style={{
+                        padding: "3px",
+                        fontSize: "1.5rem",
+                        border: "solid 3px",
+                        backgroundColor: "orange",
+                        borderRadius: "10px",
+                     }}>
+                     BOOK NOW
+                  </button>
                </article>
             </div>
          </section>

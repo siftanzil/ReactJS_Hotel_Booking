@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { RoomContext } from "../RoomContext";
+import { RoomContext } from "../contexts/RoomContext";
 import Loading from "../components/Loading";
 import Room from "../components/Room";
 import Title from "./Title";
